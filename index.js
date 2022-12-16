@@ -11,12 +11,15 @@ bot.onText(/\/start/, (msg) => {
       keyboard: [["Отправь мне картинку", "Отправь мне аудио"], ["/start"]],
     },
   });
-  bot.on("message", (msg) => {
-    var location = "location";
-    if (msg.text.indexOf(location) === 0) {
-      bot.sendLocation(msg.chat.id, 44.97108, -104.27719);
-      bot.sendMessage(msg.chat.id, "Наши координаты");
-    }
+});
+bot.on("message", (msg) => {
+  var location = "location";
+  if (msg.text.indexOf(location) === 0) {
+    bot.sendLocation(msg.chat.id, 44.97108, -104.27719);
+    bot.sendMessage(msg.chat.id, "Наши координаты");
+  }
+});
+bot.on("message", (msg) => {
     if (msg.text.toString() === "Отправь мне картинку") {
       bot.sendPhoto(
         msg.chat.id,
@@ -28,4 +31,3 @@ bot.onText(/\/start/, (msg) => {
       bot.sendAudio(msg.chat.id, "noname.wma");
     }
   });
-});
